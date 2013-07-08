@@ -23,7 +23,7 @@ var readFile = function(response, fileName) {
 };
 
 app.get('/', function(request, response) {
-  readFile(response, FILENAME_DEFAULT);
+  readFile(response, "./index.html");
   response.send('Hello World 3');
 });
 
