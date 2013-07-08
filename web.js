@@ -14,12 +14,12 @@ var readFile = function(fileName) {
       });
       else response.send("file not found");
     });
-  } else { /* do nothing */ }
+  } else { response.send("done nothing"); }
 };
 
 app.get('/', function(request, response) {
   readFile(FILENAME_DEFAULT);
-  response.send('Hello World');
+  response.send('Hello World 2');
 });
 
 var port = process.env.PORT || 5000;
