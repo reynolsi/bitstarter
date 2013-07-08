@@ -27,7 +27,6 @@ var readFile = function(response, fileName) {
 
 app.get('/', function(request, response) {
 //  readFile(response, FILENAME_DEFAULT);
-//  response.send('Hello World 3');
     var data = fs.readFileSync(FILENAME_DEFAULT, 'utf8');
     response.send(data);
 });
