@@ -18,7 +18,7 @@ var readFile = function(fileName) {
 };
 
 app.get('/', function(request, response) {
-  readFile(fileName);
+  readFile(FILENAME_DEFAULT);
 });
 
 var port = process.env.PORT || 5000;
