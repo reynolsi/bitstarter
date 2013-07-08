@@ -10,6 +10,7 @@ var readFile = function(response, fileName) {
   response.send(" readfile -->");
   if(fileName.length > 0) {
     fs.exists(fileName, function(exists){
+      response.send(" readfile 1");
       if(exists)fs.readFile(fileName, "utf-8", function(error, data) {
         response.send(data);
       });
