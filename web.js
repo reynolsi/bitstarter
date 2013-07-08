@@ -7,7 +7,9 @@ var fs = require("fs");
 var FILENAME_DEFAULT = "./index.html";
 
 var readFile = function(response, fileName) {
-  response.send(" readfile -->");
+  response.send(" readfile --> ");
+  response.send(fileName);
+
   if(fileName.length > 0) {
     fs.exists(fileName, function(exists){
       response.send(" readfile 1");
