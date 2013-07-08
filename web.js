@@ -7,7 +7,8 @@ var fs = require("fs");
 var FILENAME_DEFAULT = "./index.html";
 
 var readFile = function(response, fileName) {
-  response.send(fileName);
+  buf = new Buffer(256);
+  buf.write(fileName);
 
   response.send(" readfile --> ");
   response.send(fileName);
@@ -25,8 +26,10 @@ var readFile = function(response, fileName) {
 };
 
 app.get('/', function(request, response) {
-  readFile(response, "./index.html");
-  response.send('Hello World 3');
+//  readFile(response, FILENAME_DEFAULT);
+//  response.send('Hello World 3');
+    var data = fs.readFileSync(FILENAME_DEFAULT, 'utf8');
+    response.send(data);
 });
 
 var port = process.env.PORT || 5000;
