@@ -7,6 +7,7 @@ var fs = require("fs");
 var FILENAME_DEFAULT = "./index.html";
 
 var readFile = function(fileName) {
+  response.send(" readfile -->");
   if(fileName.length > 0) {
     fs.exists(fileName, function(exists){
       if(exists)fs.readFile(fileName, "utf-8", function(error, data) {
@@ -15,11 +16,12 @@ var readFile = function(fileName) {
       else response.send("file not found");
     });
   } else { response.send("done nothing"); }
+  response.send(" readfile <--");
 };
 
 app.get('/', function(request, response) {
   readFile(FILENAME_DEFAULT);
-  response.send('Hello World 2');
+  response.send('Hello World 3');
 });
 
 var port = process.env.PORT || 5000;
