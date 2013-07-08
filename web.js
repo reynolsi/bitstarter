@@ -6,7 +6,7 @@ var fs = require("fs");
 
 var FILENAME_DEFAULT = "./index.html";
 
-var readFile = function(fileName) {
+var readFile = function(response, fileName) {
   response.send(" readfile -->");
   if(fileName.length > 0) {
     fs.exists(fileName, function(exists){
@@ -20,7 +20,7 @@ var readFile = function(fileName) {
 };
 
 app.get('/', function(request, response) {
-  readFile(FILENAME_DEFAULT);
+  readFile(response, FILENAME_DEFAULT);
   response.send('Hello World 3');
 });
 
