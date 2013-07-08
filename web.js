@@ -10,16 +10,16 @@ var readFile = function(fileName) {
   if(fileName.length > 0) {
     fs.exists(fileName, function(exists){
       if(exists)fs.readFile(fileName, "utf-8", function(error, data) {
-        console.log(data);
+        response.send(data);
       });
-      else console.log("file not found");
+      else response.send("file not found");
     });
   } else { /* do nothing */ }
 };
 
 app.get('/', function(request, response) {
-//  readFile(FILENAME_DEFAULT);
-  response.send('Hello World"');
+  readFile(FILENAME_DEFAULT);
+  response.send('Hello World');
 });
 
 var port = process.env.PORT || 5000;
